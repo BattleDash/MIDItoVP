@@ -93,31 +93,6 @@ public class KeyPress {
             isShifted = shift;
         }
 
-        public void down() {
-            try {
-                if (isShifted) {
-                    robot.keyPress(KeyEvent.VK_SHIFT);
-                }
-                robot.keyPress(code);
-                if (isShifted) {
-                    robot.keyRelease(KeyEvent.VK_SHIFT);
-                }
-                if (code == KeyEvent.VK_ENTER) {
-                    robot.keyPress(KeyEvent.VK_HOME);
-                }
-
-            } catch (IllegalArgumentException ex) {
-                String ch = "";
-                for (char key : strokeMap.keySet()) {
-                    if (strokeMap.get(key) == this) {
-                        ch = "" + key;
-                        break;
-                    }
-                }
-                System.err.println("Key Code Not Recognized: '" + ch + "'->" + code);
-            }
-        }
-
         public void type() {
             try {
                 if (isShifted) {

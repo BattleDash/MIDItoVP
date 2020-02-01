@@ -67,16 +67,14 @@ public class Main {
         player = new Player(files.get(midiFile).toString());
         kbListener = new KeyboardListener();
         kbListener.init();
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            public void run() {
-                try {
-                    GlobalScreen.unregisterNativeHook();
-                    System.out.println("Shutting down...");
-                } catch (NativeHookException e) {
-                    e.printStackTrace();
-                }
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try {
+                GlobalScreen.unregisterNativeHook();
+                System.out.println("Shutting down...");
+            } catch (NativeHookException e) {
+                e.printStackTrace();
             }
-        });
+        }));
 
         System.out.println("MIDI Parsing done. Press DELETE to start/pause/resume playback.");
 
