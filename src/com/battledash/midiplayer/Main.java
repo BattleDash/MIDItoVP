@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 
 public class Main {
 
-    private static ArrayList<Path> files = new ArrayList<Path>();
+    private static ArrayList<Path> files = new ArrayList<>();
 
     public static Player player;
     public static KeyboardListener kbListener;

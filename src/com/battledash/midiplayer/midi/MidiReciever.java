@@ -22,13 +22,9 @@ public class MidiReciever implements Receiver {
         }
     }
 
-    public MidiReciever() {
-
-    }
-
     @Override
     public void send(MidiMessage message, long timeStamp) {
-        if(message instanceof ShortMessage) {
+        if (message instanceof ShortMessage) {
             ShortMessage sm = (ShortMessage) message;
             if (sm.getCommand() == NOTE_ON) {
                 int key = sm.getData1();
@@ -42,7 +38,6 @@ public class MidiReciever implements Receiver {
         }
     }
 
-    @Override
     public void close() {
 
     }
